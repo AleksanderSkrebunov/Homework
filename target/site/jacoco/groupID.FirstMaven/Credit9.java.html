@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Credit9.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FirstMaven</a> &gt; <a href="index.source.html" class="el_package">groupID.FirstMaven</a> &gt; <span class="el_source">Credit9.java</span></div><h1>Credit9.java</h1><pre class="source lang-java linenums">package groupID.FirstMaven;
+
+import java.util.*;
+
+/** First test class documentation
+ *
+ */
+<span class="nc" id="L8">public class Credit9 {</span>
+
+    /** Method, wich calculate the number of occurrences of a string
+     * in a substring
+     * @param str - string
+     * @param substring - searched substring
+     * @return count - number of occurrences of a string
+     */
+    public static int substringCount(String str, String substring) {
+<span class="fc" id="L17">        int count1 = 0, count = 0;</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (int i = 0; i &lt; str.length(); i++) {</span>
+<span class="fc" id="L19">            count1 = str.indexOf(substring, i);</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">            if (count1 &gt;= i) {</span>
+<span class="fc" id="L21">                i = count1 + substring.length() - 1;</span>
+<span class="fc" id="L22">                count++;</span>
+            }
+        }
+<span class="fc" id="L25">        return count;</span>
+    }
+
+<span class="nc" id="L28">    Singers singer1 = new Singers(&quot;Nico&quot;, 0);</span>
+<span class="nc" id="L29">    Singers singer2 = new Singers(&quot;Zatochka&quot;, 0);</span>
+<span class="nc" id="L30">    Singers singer3 = new Singers(&quot;DU&quot;, 0);</span>
+<span class="nc" id="L31">    Genres juze = new Genres(&quot;juze&quot;,0);</span>
+<span class="nc" id="L32">    Genres bluse = new Genres(&quot;bluse&quot;,0);</span>
+<span class="nc" id="L33">    Genres reggy = new Genres(&quot;reggy&quot;,0);</span>
+<span class="nc" id="L34">    Genres rock = new Genres(&quot;rock&quot;,0);</span>
+<span class="nc" id="L35">    Genres folk = new Genres(&quot;folk&quot;,0);</span>
+<span class="nc" id="L36">    Genres metal = new Genres(&quot;metal&quot;,0);</span>
+<span class="nc" id="L37">    Genres pop = new Genres(&quot;pop&quot;,0);</span>
+<span class="nc" id="L38">    Genres techno = new Genres(&quot;techno&quot;,0);</span>
+<span class="nc" id="L39">    Genres house = new Genres(&quot;house&quot;,0);</span>
+<span class="nc" id="L40">    Genres indie = new Genres(&quot;indie&quot;,0);</span>
+<span class="nc" id="L41">    List&lt;Singers&gt; singersList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L42">    List&lt;Comment&gt; commentList = new ArrayList&lt;&gt;();</span>
+
+    /**
+     *
+     * @param answer
+     * @return
+     */
+    public Singers whatASinger(String answer){
+<span class="nc" id="L50">        Singers singerReturn = new Singers(null,0);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if(singer1.getName().equals(answer)){</span>
+<span class="nc" id="L52">            singer1.setVoices(singer1.getVoices()+1);</span>
+<span class="nc" id="L53">            singerReturn = singer1;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        }else if(singer2.getName().equals(answer)){</span>
+<span class="nc" id="L55">            singer2.setVoices(singer2.getVoices()+1);</span>
+<span class="nc" id="L56">            singerReturn = singer2;</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        }else if(singer3.getName().equals(answer)){</span>
+<span class="nc" id="L58">            singer3.setVoices(singer3.getVoices()+1);</span>
+<span class="nc" id="L59">            singerReturn = singer3;</span>
+        }
+<span class="nc" id="L61">        return singerReturn;</span>
+    }
+
+    public List&lt;Genres&gt; bestGenres(String[] s){
+<span class="nc" id="L65">        List&lt;Genres&gt; genresList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L66">        genresList.add(juze); genresList.add(bluse);genresList.add(reggy);genresList.add(rock);genresList.add(folk);</span>
+<span class="nc" id="L67">        genresList.add(metal);genresList.add(pop);genresList.add(techno);genresList.add(house);genresList.add(indie);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        for(Genres g:genresList){</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            for(String t:s){</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">                if(t.equals(g.getName())){</span>
+<span class="nc" id="L71">                    g.setVoices(g.getVoices()+1);</span>
+<span class="nc" id="L72">                } } }</span>
+<span class="nc" id="L73">        Collections.sort(genresList, new Comparator&lt;Genres&gt;() {</span>
+            @Override
+<span class="nc" id="L75">            public int compare(Genres o1, Genres o2) {return o2.getVoices() - o1.getVoices();}});</span>
+<span class="nc" id="L76">        return genresList; }</span>
+
+    public List&lt;Singers&gt; bestSingers() {
+<span class="nc" id="L79">        singersList.clear();</span>
+<span class="nc" id="L80">        singersList.add(singer1);</span>
+<span class="nc" id="L81">        singersList.add(singer2);</span>
+<span class="nc" id="L82">        singersList.add(singer3);</span>
+<span class="nc" id="L83">        singersList.sort(new Comparator&lt;Singers&gt;() {</span>
+            @Override
+            public int compare(Singers o1, Singers o2) {
+<span class="nc" id="L86">                return o2.getVoices() - o1.getVoices();</span>
+            }
+        });
+<span class="nc" id="L89">        return singersList;}</span>
+
+    public List&lt;Comment&gt; commentsByTime(String s){
+<span class="nc" id="L92">        Date date = new Date(); long millis = date.getTime(); int temp = (int) (millis/3600);</span>
+<span class="nc" id="L93">        Comment com = new Comment(s,temp);</span>
+<span class="nc" id="L94">        commentList.add(com);</span>
+<span class="nc" id="L95">        Collections.sort(commentList, new Comparator&lt;Comment&gt;() {</span>
+            @Override
+<span class="nc" id="L97">            public  int compare(Comment o1, Comment o2) {return o2.getTime() - o1.getTime();}});</span>
+<span class="nc" id="L98">        return commentList; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

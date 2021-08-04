@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+FirstMaven,groupID.FirstMaven,Credit9.new Comparator() {...},12,0,0,0,2,0,2,0,2,0
+FirstMaven,groupID.FirstMaven,HelloServlet,148,0,6,0,34,0,5,0,2,0
+FirstMaven,groupID.FirstMaven,Credit9.new Comparator() {...},12,0,0,0,2,0,2,0,2,0
+FirstMaven,groupID.FirstMaven,Genres,76,0,10,0,16,0,13,0,8,0
+FirstMaven,groupID.FirstMaven,Credit9,329,30,13,3,48,7,12,2,5,1
+FirstMaven,groupID.FirstMaven,Operation.new Comparator() {...},12,0,0,0,2,0,2,0,2,0
+FirstMaven,groupID.FirstMaven,Singers,79,0,10,0,18,0,14,0,9,0
+FirstMaven,groupID.FirstMaven,Operation,329,0,12,0,48,0,11,0,5,0
+FirstMaven,groupID.FirstMaven,Credit9.new Comparator() {...},12,0,0,0,2,0,2,0,2,0
+FirstMaven,groupID.FirstMaven,Operation.new Comparator() {...},12,0,0,0,2,0,2,0,2,0
+FirstMaven,groupID.FirstMaven,Operation.new Comparator() {...},12,0,0,0,2,0,2,0,2,0
+FirstMaven,groupID.FirstMaven,Comment,76,0,10,0,16,0,13,0,8,0

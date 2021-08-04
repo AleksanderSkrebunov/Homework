@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Operation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FirstMaven</a> &gt; <a href="index.source.html" class="el_package">groupID.FirstMaven</a> &gt; <span class="el_source">Operation.java</span></div><h1>Operation.java</h1><pre class="source lang-java linenums">package groupID.FirstMaven;
+
+import java.util.*;
+
+<span class="nc" id="L5">public class Operation {</span>
+<span class="nc" id="L6">    Singers singer1 = new Singers(&quot;Nico&quot;, 0);</span>
+<span class="nc" id="L7">    Singers singer2 = new Singers(&quot;Zatochka&quot;, 0);</span>
+<span class="nc" id="L8">    Singers singer3 = new Singers(&quot;DU&quot;, 0);</span>
+<span class="nc" id="L9">    Genres juze = new Genres(&quot;juze&quot;,0);</span>
+<span class="nc" id="L10">    Genres bluse = new Genres(&quot;bluse&quot;,0);</span>
+<span class="nc" id="L11">    Genres reggy = new Genres(&quot;reggy&quot;,0);</span>
+<span class="nc" id="L12">    Genres rock = new Genres(&quot;rock&quot;,0);</span>
+<span class="nc" id="L13">    Genres folk = new Genres(&quot;folk&quot;,0);</span>
+<span class="nc" id="L14">    Genres metal = new Genres(&quot;metal&quot;,0);</span>
+<span class="nc" id="L15">    Genres pop = new Genres(&quot;pop&quot;,0);</span>
+<span class="nc" id="L16">    Genres techno = new Genres(&quot;techno&quot;,0);</span>
+<span class="nc" id="L17">    Genres house = new Genres(&quot;house&quot;,0);</span>
+<span class="nc" id="L18">    Genres indie = new Genres(&quot;indie&quot;,0);</span>
+<span class="nc" id="L19">    List&lt;Singers&gt; singersList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L20">    List&lt;Comment&gt; commentList = new ArrayList&lt;&gt;();</span>
+
+    public Singers whatASinger(String answer){
+<span class="nc" id="L23">        Singers singerReturn = new Singers(null,0);</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if(singer1.getName().equals(answer)){</span>
+<span class="nc" id="L25">            singer1.setVoices(singer1.getVoices()+1);</span>
+<span class="nc" id="L26">            singerReturn = singer1;</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        }else if(singer2.getName().equals(answer)){</span>
+<span class="nc" id="L28">            singer2.setVoices(singer2.getVoices()+1);</span>
+<span class="nc" id="L29">            singerReturn = singer2;</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        }else if(singer3.getName().equals(answer)){</span>
+<span class="nc" id="L31">            singer3.setVoices(singer3.getVoices()+1);</span>
+<span class="nc" id="L32">            singerReturn = singer3;</span>
+        }
+<span class="nc" id="L34">        return singerReturn;</span>
+    }
+
+    public List&lt;Genres&gt; bestGenres(String[] s){
+<span class="nc" id="L38">        List&lt;Genres&gt; genresList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L39">        genresList.add(juze); genresList.add(bluse);genresList.add(reggy);genresList.add(rock);genresList.add(folk);</span>
+<span class="nc" id="L40">        genresList.add(metal);genresList.add(pop);genresList.add(techno);genresList.add(house);genresList.add(indie);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for(Genres g:genresList){</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">            for(String t:s){</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">                if(t.equals(g.getName())){</span>
+<span class="nc" id="L44">                    g.setVoices(g.getVoices()+1);</span>
+<span class="nc" id="L45">                } } }</span>
+<span class="nc" id="L46">        Collections.sort(genresList, new Comparator&lt;Genres&gt;() {</span>
+            @Override
+<span class="nc" id="L48">            public int compare(Genres o1, Genres o2) {return o2.getVoices() - o1.getVoices();}});</span>
+<span class="nc" id="L49">        return genresList; }</span>
+
+    public List&lt;Singers&gt; bestSingers() {
+<span class="nc" id="L52">        singersList.clear();</span>
+<span class="nc" id="L53">        singersList.add(singer1);</span>
+<span class="nc" id="L54">        singersList.add(singer2);</span>
+<span class="nc" id="L55">        singersList.add(singer3);</span>
+<span class="nc" id="L56">        singersList.sort(new Comparator&lt;Singers&gt;() {</span>
+            @Override
+            public int compare(Singers o1, Singers o2) {
+<span class="nc" id="L59">                return o2.getVoices() - o1.getVoices();</span>
+            }
+        });
+<span class="nc" id="L62">        return singersList;}</span>
+
+        public List&lt;Comment&gt; commentsByTime(String s){
+<span class="nc" id="L65">        Date date = new Date(); long millis = date.getTime(); int temp = (int) (millis/3600);</span>
+<span class="nc" id="L66">        Comment com = new Comment(s,temp);</span>
+<span class="nc" id="L67">        commentList.add(com);</span>
+<span class="nc" id="L68">            Collections.sort(commentList, new Comparator&lt;Comment&gt;() {</span>
+                @Override
+<span class="nc" id="L70">                public  int compare(Comment o1, Comment o2) {return o2.getTime() - o1.getTime();}});</span>
+<span class="nc" id="L71">        return commentList; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

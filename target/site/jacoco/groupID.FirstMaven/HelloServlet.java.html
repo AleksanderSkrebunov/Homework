@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HelloServlet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FirstMaven</a> &gt; <a href="index.source.html" class="el_package">groupID.FirstMaven</a> &gt; <span class="el_source">HelloServlet.java</span></div><h1>HelloServlet.java</h1><pre class="source lang-java linenums">package groupID.FirstMaven;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet(name = &quot;HelloServlet&quot;, urlPatterns = &quot;/test&quot;)
+<span class="nc" id="L14">public class HelloServlet extends HttpServlet {</span>
+<span class="nc" id="L15">    Singers singer = new Singers(null,0);</span>
+<span class="nc" id="L16">    Operation o = new Operation();</span>
+<span class="nc" id="L17">    List&lt;Singers&gt; testlist = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L18">    List&lt;Genres&gt; testgenresList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L19">    List&lt;Comment&gt; testComments = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L20">    private String GENRE = &quot;genre&quot;;</span>
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<span class="nc" id="L23">        resp.setContentType(&quot;test/html&quot;);</span>
+<span class="nc" id="L24">        PrintWriter writer = resp.getWriter();</span>
+<span class="nc" id="L25">        writer.write(&quot;&lt;p&gt;&lt;span style='color: blue;'&gt; Hello world&lt;/span&gt;&lt;/p&gt;&quot;);</span>
+<span class="nc" id="L26">        String firstName = req.getParameter(&quot;firstName&quot;);</span>
+<span class="nc" id="L27">        String lastName = req.getParameter(&quot;lastName&quot;);</span>
+<span class="nc" id="L28">        String answer = req.getParameter(&quot;answer&quot;);</span>
+<span class="nc" id="L29">        String comment = req.getParameter(&quot;comment&quot;);</span>
+<span class="nc" id="L30">        String [] genres = req.getParameterValues(GENRE);</span>
+<span class="nc" id="L31">        resp.setContentType(&quot;text/html; chatset=UTF-8&quot;);</span>
+<span class="nc" id="L32">        writer.write(&quot;&lt;!DOCTYPE HTML&gt;\n&quot; +</span>
+                &quot;&lt;html&gt;\n&quot; +
+                &quot; &lt;head&gt;\n&quot; +
+                &quot;  &lt;meta charset=\&quot;utf-8\&quot;&gt;\n&quot; +
+                &quot;  &lt;title&gt;Тег FORM&lt;/title&gt;\n&quot; +
+                &quot; &lt;/head&gt;\n&quot; +
+                &quot; &lt;body&gt;\n&quot; +
+                &quot;\n&quot; +
+                &quot; &lt;form action=\&quot;test\&quot;&gt;\n&quot; +
+                &quot;  &lt;p&gt;&lt;b&gt; Best signer?&lt;/b&gt;&lt;/p&gt;\n&quot; +
+                &quot;  &lt;p&gt;&lt;input type=\&quot;radio\&quot; name=\&quot;answer\&quot; value=\&quot;Nico\&quot;&gt;Nico&lt;Br&gt;\n&quot; +
+                &quot;  &lt;input type=\&quot;radio\&quot; name=\&quot;answer\&quot; value=\&quot;Zatochka\&quot;&gt;Zatochka&lt;Br&gt;\n&quot; +
+                &quot;  &lt;input type=\&quot;radio\&quot; name=\&quot;answer\&quot; value=\&quot;DU\&quot;&gt;DU&lt;/p&gt;\n &lt;Br&gt;&quot;+
+                &quot;  &lt;p&gt;best genres?&lt;/p&gt;\n&quot; +
+                &quot; &lt;ol&gt;\n&quot; + &quot;&lt;br&gt;&quot; +
+                &quot; &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;juze\&quot; &gt;juze&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;bluse\&quot; &gt;bluse&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;reggy\&quot; &gt;reggy&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;rock\&quot; &gt;rock&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;folk\&quot; &gt;folk&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;metal\&quot; &gt;metal&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;pop\&quot; &gt;pop&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;techno\&quot; &gt;techno&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;house\&quot; &gt;house&lt;/li&gt;&quot; +
+                &quot;  &lt;li&gt;&lt;input type=\&quot;checkbox\&quot; name=\&quot;genre\&quot; value=\&quot;indie\&quot; &gt;indie&lt;/li&gt;&quot; +
+                &quot;&lt;/ol&gt;\n&quot; + &quot;&lt;Br&gt;&quot; +
+                &quot;&lt;p&gt;About yourself&lt;Br&gt;&quot; +
+                &quot; &lt;textarea name=\&quot;comment\&quot; cols=\&quot;40\&quot; rows=\&quot;6\&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;&quot; +
+                &quot;  &lt;p&gt;&lt;input type=\&quot;submit\&quot;&gt;&lt;/p&gt;\n&quot; +
+                &quot; &lt;/form&gt;\n&quot; +
+                &quot;\n&quot; +
+                &quot; &lt;/body&gt;\n&quot; +
+                &quot;&lt;/html&gt;&quot;);
+
+<span class="nc" id="L66">        singer = o.whatASinger(answer);</span>
+<span class="nc" id="L67">        testlist = o.bestSingers();</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        for(Singers a: testlist){</span>
+<span class="nc" id="L69">            writer.write(&quot;&lt;!DOCTYPE HTML&gt;\n&quot; +</span>
+                    &quot;&lt;html&gt;\n&quot; +
+                    &quot; &lt;head&gt;\n&quot; +
+                    &quot;  &lt;meta charset=\&quot;utf-8\&quot;&gt;\n&quot; +
+                    &quot;  &lt;title&gt;Тег FORM&lt;/title&gt;\n&quot; +
+                    &quot; &lt;/head&gt;\n&quot; +
+<span class="nc" id="L75">                    &quot; &lt;body&gt;&quot; + a.getName() + &quot; - voice number&quot; + a.getVoices() + &quot;&lt;br&gt;&lt;br&gt;\n&quot; +</span>
+                    &quot; &lt;/body&gt;\n&quot; +
+                    &quot;&lt;/html&gt;&quot;);
+<span class="nc" id="L78">        }</span>
+<span class="nc" id="L79">        testgenresList = o.bestGenres(genres);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        for(Genres a: testgenresList){</span>
+<span class="nc" id="L81">            writer.write(&quot;&lt;!DOCTYPE HTML&gt;\n&quot; +</span>
+                    &quot;&lt;html&gt;\n&quot; +
+                    &quot; &lt;head&gt;\n&quot; +
+                    &quot;  &lt;meta charset=\&quot;utf-8\&quot;&gt;\n&quot; +
+                    &quot;  &lt;title&gt;Тег FORM&lt;/title&gt;\n&quot; +
+                    &quot; &lt;/head&gt;\n&quot; +
+<span class="nc" id="L87">                    &quot; &lt;body&gt;&quot; + a.getName() + &quot; - voice number&quot; + a.getVoices() + &quot;&lt;br&gt;&lt;br&gt;\n&quot; +</span>
+                    &quot; &lt;/body&gt;\n&quot; +
+                    &quot;&lt;/html&gt;&quot;);
+<span class="nc" id="L90">        }</span>
+<span class="nc" id="L91">        testComments = o.commentsByTime(comment);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        for(Comment a: testComments){</span>
+<span class="nc" id="L93">            writer.write(&quot;&lt;!DOCTYPE HTML&gt;\n&quot; +</span>
+                    &quot;&lt;html&gt;\n&quot; +
+                    &quot; &lt;head&gt;\n&quot; +
+                    &quot;  &lt;meta charset=\&quot;utf-8\&quot;&gt;\n&quot; +
+                    &quot;  &lt;title&gt;Тег FORM&lt;/title&gt;\n&quot; +
+                    &quot; &lt;/head&gt;\n&quot; +
+<span class="nc" id="L99">                    &quot; &lt;body&gt;&quot; + a.getComment() +  &quot;&lt;br&gt;\n&quot; +</span>
+                    &quot; &lt;/body&gt;\n&quot; +
+                    &quot;&lt;/html&gt;&quot;);
+<span class="nc" id="L102">        }</span>
+<span class="nc" id="L103">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
